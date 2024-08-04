@@ -48,7 +48,17 @@
     let tg = window.Telegram.WebApp;
     document.write(tg.initDataUnsafe.user.id);
     document.write(tg.initDataUnsafe.WebAppData.data);
-    document.write(tg.initData.WebAppData.data);
+    document.write(tg.initData.WebAppData.data);       
 </script>
+<script>
+        function notifyBot() {
+            const data = { action: "open_app" };
+            Telegram.WebApp.sendData(JSON.stringify(data));
+        }
+
+        window.onload = function() {
+            notifyBot();
+        };
+    </script>
 </body>
 </html>
