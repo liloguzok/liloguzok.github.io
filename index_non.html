@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gif с надписью</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            margin-top: -70px;
+            background-color: #90EE90; 
+        }
+        img {
+            max-width: 250px;
+            max-height: 250px;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            margin-top: 20px;
+            text-align: center;
+
+
+        }
+        .kub {
+            background-color: #e5f8e5;;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img align="middle" src="dice.gif" alt="Gif">
+    <h1 id = "myText">⌛Проверяем подписанны ли вы</h1>
+    <script>
+        setTimeout(() => {
+            const myText = document.getElementById('myText');
+            myText.textContent = "❌Розыгрыш уже прошел";
+        }, 3700); //
+    </script>
+
+</body>
+</html>
