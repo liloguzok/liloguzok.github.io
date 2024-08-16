@@ -22,26 +22,66 @@
             justify-content: center;
         }
         h1 {
+            opacity: 0;
+            animation: ani 6s forwards;
             margin-top: 20px;
             text-align: center;
-            font-family: 'Comic Sans'
+            font-family: "Comic Sans", serif;
 
+        }
+        @keyframes ani {
+          0% {opacity: 0;}
+          35% {opacity: 1;}
+          55% {opacity: 0;}
+          70% {opacity: 0;}
+          100% {opacity: 1;}
         }
         .kub {
             background-color: #e5f8e5;;
             border-radius: 10px;
         }
+        .square {
+          width: 80vw;
+          height: 60vw;
+          max-width: 80vh;
+          max-height: 60vh;
+          position: absolute;
+          top: 43%; left: 50%;
+          transform: translate(-50%, -50%);
+          background: white;
+          z-index: -1;  
+          border-radius: 10px;
+
+        }
     </style>
 </head>
 <body>
     <img align="middle" src="dice.gif" alt="Gif">
-    <h1 id = "myText">⌛Проверяем подписаны ли вы</h1>
+    <div class="square"></div>
+    <h1 id = "myText">⌛Проверяем подписанны ли вы</h1>
     <script>
         setTimeout(() => {
             const myText = document.getElementById('myText');
-            myText.textContent = "✅Вы участвуйте";
+            myText.textContent = "✅Вы учавствуйте";
         }, 3700); //
     </script>
 
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+    let tg = window.Telegram.WebApp;
+    document.write(tg.initDataUnsafe.user.id);
+    document.write(tg.initDataUnsafe.WebAppData.data);
+    document.write(tg.initData.WebAppData.data);       
+</script>
+<script>
+        function notifyBot() {
+            const data = { action: "open_app" };
+            Telegram.WebApp.sendData(JSON.stringify(data));
+        }
+
+        window.onload = function() {
+            notifyBot();
+        };
+    </script>
 </body>
 </html>
